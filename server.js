@@ -6,7 +6,7 @@ var express = require('express');
 var app = express();
 
 // serve static files from public folder
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
 
 var controllers = require('./controllers');
 
