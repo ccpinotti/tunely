@@ -10,7 +10,7 @@ app.use(express.static('public'));
 
 var controllers = require('./controllers');
 
-
+var db = require("./models");
 /**********
  * ROUTES *
  **********/
