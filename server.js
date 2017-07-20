@@ -10,7 +10,7 @@ var express = require('express'),
 var app = express();
 
 // access database
-// let db = require('./models');
+let db = require('./models');
 
 // serve static files in public
 app.use(express.static('public'));
