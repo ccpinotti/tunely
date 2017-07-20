@@ -2,15 +2,18 @@
 
 //require express in our app
 var express = require('express');
+var bodyParser = require('body-parser');
 // generate a new express app and call it 'app'
 var app = express();
 
 // serve static files from public folder
 app.use(express.static('public'));
 
+app.use(bodyParser.urlencoded({extended: true}));
+
 var controllers = require('./controllers');
 
-var db = require("./models");
+
 /**********
  * ROUTES *
  **********/
@@ -31,6 +34,7 @@ app.get('/', function homepage (req, res) {
 app.get('/api', controllers.api.index);
 
 app.get('/api/albums', controllers.albums.index);
+app.post('/api/albums', controllers.albums.create);
 
 /**********
  * SERVER *

@@ -48,9 +48,29 @@ $(document).ready(function() {
     error: handleError
   });
 
+  $('.form-horizontal').on('submit', function(e) {
+    e.preventDefault();
+    let data = $(this).serialize();
+    $.ajax({
+      method: 'POST',
+      url: '/api/albums',
+      data: data,
+      success: albumCreateSuccess,
+      error: handleError
+    });
+    $(this).trigger("reset");
+  });
+
+  $("#addAlbumBtn").on("click",function(e){
+    e.preventDefault();
+    $("#albumModal").modal();
+  })
 
 });
 
+function albumCreateSuccess(data){
+  renderAlbum(data);
+}
 
 function handleSuccess(data){
   data.albums.forEach(function(album){
