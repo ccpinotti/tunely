@@ -1,0 +1,29 @@
+{
+  "name": "tunely",
+  "version": "1.0.0",
+  "description": "music app",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonoilconte/tunely.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonoilconte/tunely/issues"
+  },
+  "homepage": "https://github.com/sonoilconte/tunely#readme"
+}
