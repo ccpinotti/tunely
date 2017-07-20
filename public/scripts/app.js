@@ -40,17 +40,27 @@ sampleAlbums.push({
 $(document).ready(function() {
   console.log('app.js loaded!');
 
-  sampleAlbums.forEach(function(album){
-    renderAlbum(album);
-  });
 
+  $.ajax({
+    method: 'GET',
+    url: '/api/albums',
+    success: handleSuccess,
+    error: handleError
+  });
 
 
 });
 
 
+function handleSuccess(data){
+  data.forEach(function(album){
+    renderAlbum(album);
+  });
+};
 
-
+function handleError(error){
+  console.log(error);
+};
 
 // this function takes a single album and renders it to the page
 function renderAlbum(album) {
