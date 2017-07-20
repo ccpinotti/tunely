@@ -53,7 +53,7 @@ $(document).ready(function() {
 
 
 function handleSuccess(data){
-  data.forEach(function(album){
+  data.albums.forEach(function(album){
     renderAlbum(album);
   });
 };
