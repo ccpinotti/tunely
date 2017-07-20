@@ -10,7 +10,7 @@ var express = require('express'),
 var app = express();
 
 // access database
-let db = require('./models');
+// let db = require('./models');
 
 // serve static files in public
 app.use(express.static('public'));
@@ -18,7 +18,11 @@ app.use(express.static('public'));
 // body parser config to accept our datatypes
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
+app.get('/', function(req, res){
+  console.log("hello world!");
+  // res.send("hello world");
+  res.sendFile('/views/index.html', { root: __dirname});
+});
 
 
 
