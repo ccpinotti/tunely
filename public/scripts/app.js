@@ -75,6 +75,7 @@ function albumCreateSuccess(data){
 function handleSuccess(data){
   data.albums.forEach(function(album){
     renderAlbum(album);
+    renderSongs(album);
   });
 };
 
@@ -124,14 +125,38 @@ function renderAlbum(album) {
               <!-- end of album internal row -->
 
               <div class='panel-footer'>
+                <li class="list-group-item">
+                <h4 class="inline-header">Songs:</h4>
+                <span id="${album._id}"></span>
+                </li>
               </div>
-
+              <div class='panel-footer'>
+                <button class='btn btn-primary add-song'>Add Song</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <!-- end one album -->
 `;
-$("#albums").append(strAlbum);
+  $("#albums").append(strAlbum);
 
+  console.log(album._id);
+}
+
+function renderSongs(album){
+
+  let songsArray = [];
+
+  album.songs.forEach(function(element){
+    let trackNumber = element.trackNumber;
+    let trackName = element.name;
+    songsArray.push("- (" + trackNumber + ") ");
+    songsArray.push(`${trackName} `);
+  });
+
+  songsArray.join();
+
+  $('#' + album._id).html(songsArray);
+// '#237895sgjgsgu8093'
 }
