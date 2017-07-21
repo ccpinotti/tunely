@@ -1,3 +1,38 @@
+/*  Approximate schema for these seeds
+var SongSchema = new Schema({
+  name: String,
+  trackNumber: Number,
+});
+*/
+
+
+var sampleSongs = [];
+
+sampleSongs.push({ name: 'Swamped',
+                   trackNumber: 1
+});
+sampleSongs.push({ name: "Heaven's a Lie",
+                   trackNumber: 2
+});
+sampleSongs.push({ name: 'Daylight Dancer',
+                   trackNumber: 3
+});
+sampleSongs.push({ name: 'Humane',
+                   trackNumber: 4
+});
+sampleSongs.push({ name: 'Self Deception',
+                   trackNumber: 5
+});
+sampleSongs.push({ name: 'Aeon',
+                   trackNumber: 6
+});
+sampleSongs.push({ name: 'Tight Rope',
+                   trackNumber: 7
+});
+
+
+
+
 // This file allows us to seed our application with data
 // simply run: `node seed.js` from the root of this project folder.
 
@@ -33,6 +68,11 @@ albumsList.push({
   genres: [ 'country', 'rock' ]
 });
 
+
+albumsList.forEach(function(element){
+  element.songs = sampleSongs;
+
+});
 
 db.Album.remove({}, function(err, albums){
 
