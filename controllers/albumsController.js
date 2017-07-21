@@ -8,7 +8,7 @@ function index(req, res) {
   // send back all albums as JSON
   db.Album.find({}, function(err,albums){
     if (err) {
-      res.status(500).json({error:err.message});
+      res.status(500).json({error: err.message});
     }
     res.json({albums});
   });
@@ -17,15 +17,17 @@ function index(req, res) {
 // POST /api/albums
 function create(req, res) {
   db.Album.create(
-    {name:req.body.name,
+    {
+      name:req.body.name,
       artistName: req.body.artistName,
       releaseDate: req.body.releaseDate,
-      genres: req.body.genres.split(","),     
-    }, function(err,newAlbum){
-    if (err) {
-      res.status(500).json({error:err.message});
-    }
-    res.json(newAlbum);
+      genres: req.body.genres.split(","),
+
+    }, function(err, newAlbum){
+      if (err) {
+        res.status(500).json({error: err.message});
+      }
+      res.json(newAlbum);
   // create an album based on request body and send it back as JSON
   });
 }
